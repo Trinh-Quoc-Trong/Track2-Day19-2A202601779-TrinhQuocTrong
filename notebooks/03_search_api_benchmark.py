@@ -30,8 +30,9 @@ import httpx
 
 # %%
 ROOT = Path(_setup.__file__).resolve().parent.parent
+uvicorn_bin = str(ROOT / ".venv" / "Scripts" / "uvicorn.exe")
 proc = subprocess.Popen(
-    ["uvicorn", "app.main:app", "--port", "8000", "--log-level", "warning"],
+    [uvicorn_bin, "app.main:app", "--port", "8000", "--log-level", "warning"],
     cwd=str(ROOT),
 )
 
